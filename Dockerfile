@@ -4,8 +4,14 @@ FROM python:3.12-slim
 # 作業ディレクトリを設定
 WORKDIR /app
 
-# 必要なパッケージをインストール
+# 必要なシステムパッケージをインストール
+RUN apt-get update && apt-get install -y libpq-dev gcc && rm -rf /var/lib/apt/lists/*
+
+# 必要なファイルをコピー
 COPY requirements.txt .
+
+# パッケージのインストール
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # プロジェクトのソースコードをコピー
