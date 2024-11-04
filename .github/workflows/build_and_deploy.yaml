@@ -15,10 +15,10 @@ permissions:
   contents: read
 
 env:
-  AZURE_CONTAINER_REGISTRY: acrsample
-  CONTAINER_NAME: sampleapp
-  CONTAINER_APP_NAME: aca-sample
-  RESOURCE_GROUP: rg-sample
+  AZURE_CONTAINER_REGISTRY: healthcareapi
+  CONTAINER_NAME: healthcareapiapp
+  CONTAINER_APP_NAME: healthcareapiappnakami
+  RESOURCE_GROUP: healthcare_app_fukashin
 
 jobs:
   build:
