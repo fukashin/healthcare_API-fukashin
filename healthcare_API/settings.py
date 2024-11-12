@@ -60,7 +60,7 @@ DATABASES = {
         'NAME': 'healthcare_db',
         'USER': 'fuk',
         'PASSWORD': 'fuk',
-        'HOST': 'localhost',
+        'HOST': 'healthcare-db-japan-east.japaneast.azurecontainer.io',
         'PORT': '5432',
     }
 }
