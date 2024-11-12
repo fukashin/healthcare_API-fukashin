@@ -60,11 +60,11 @@ DATABASES = {
         'NAME': 'healthcare_db',
         'USER': 'fuk',
         'PASSWORD': 'fuk',
-        'HOST': 'healthcare-db-japan-east.japaneast.azurecontainer.io',
+        'HOST': 'https://healthcare-db.lemonmoss-6a32038c.japaneast.azurecontainerapps.io',
         'PORT': '5432',
     }
 }
-# a
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
