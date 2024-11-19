@@ -90,7 +90,7 @@ jobs:
       # docker-compose を終了
       - name: Stop services
         if: always()
-        run: docker-compose -f docker-compose.yml down
+        run: docker compose -f docker-compose.yml down
         # 全てのコンテナを停止してクリーンアップします。
 
   deploy:
