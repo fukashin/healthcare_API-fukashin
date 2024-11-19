@@ -7,7 +7,7 @@ on:
     branches: 
       [ main ]
 
-  # Allow mannually trigger 
+  # Allow manually trigger 
   workflow_dispatch:      
 
 permissions:
@@ -60,9 +60,42 @@ jobs:
           file: ./Dockerfile
           context: ./
 
+  # 【追加ジョブ】バックエンドとデータベースを起動するジョブ
+  start-backend-and-db:
+    runs-on: ubuntu-latest
+    needs: build  # build ジョブが成功してから実行
+
+    steps:
+      # ソースコードを取得
+      - name: Checkout to the branch
+        uses: actions/checkout@v2
+
+      # docker-compose を使用してバックエンドとデータベースを起動
+      - name: Start services with docker-compose
+        run: |
+          docker-compose -f docker-compose.yml up -d
+        # 上記コマンドにより、バックエンド (Django) とデータベース (PostgreSQL) のサービスをバックグラウンドで起動します。
+
+      # 実行中のコンテナを確認
+      - name: Check running containers
+        run: docker ps
+        # 起動したコンテナが正常に稼働しているか確認します。
+
+      # Django のテストを実行（任意）
+      - name: Run tests (optional)
+        run: |
+          docker exec django_backend python manage.py test
+        # バックエンドが正しく動作しているか、Django のテストスクリプトを実行して確認します。
+
+      # docker-compose を終了
+      - name: Stop services
+        if: always()
+        run: docker-compose -f docker-compose.yml down
+        # 全てのコンテナを停止してクリーンアップします。
+
   deploy:
     runs-on: ubuntu-latest
-    needs: build
+    needs: [build, start-backend-and-db]  # build と start-backend-and-db が成功した場合のみ実行
     
     steps:
       - name: Azure Login

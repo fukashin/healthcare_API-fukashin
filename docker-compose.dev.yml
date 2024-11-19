@@ -1,0 +1,30 @@
+services:
+  backend:
+    build: ./healthcare_API-fukashin
+    container_name: django_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./healthcare_API-fukashin:/app
+    environment:
+      - DEBUG=1
+      - POSTGRES_DB=healthcare_db
+      - POSTGRES_USER=fuk
+      - POSTGRES_PASSWORD=fuk
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    container_name: healthcare_db
+    environment:
+      POSTGRES_USER: fuk
+      POSTGRES_PASSWORD: fuk
+      POSTGRES_DB: healthcare_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - /app/node_modules # コンテナ内の node_modules を保持
