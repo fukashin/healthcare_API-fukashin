@@ -26,13 +26,10 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-        # PostgreSQL のデータ永続化用ボリューム
-    # コンテナ内の node_modules を保持するボリューム設定
-    volumes:
+      - postgres_data:/var/lib/postgresql/data  # データ永続化用ボリューム
+      # node_modules のボリュームが必要であれば以下を使用
       - /app/node_modules
 
 volumes:
   postgres_data:
-    # 永続化ボリュームとして postgres_data を定義
     driver: local
