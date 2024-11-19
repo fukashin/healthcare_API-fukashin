@@ -73,7 +73,7 @@ jobs:
       # docker-compose を使用してバックエンドとデータベースを起動
       - name: Start services with docker-compose
         run: |
-          docker-compose -f docker-compose.yml up -d
+          docker compose -f docker-compose.dev.yml up -d
         # 上記コマンドにより、バックエンド (Django) とデータベース (PostgreSQL) のサービスをバックグラウンドで起動します。
 
       # 実行中のコンテナを確認
