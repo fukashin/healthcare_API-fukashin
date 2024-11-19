@@ -54,16 +54,16 @@ WSGI_APPLICATION = "healthcare_API.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'healthcare_db',
-        'USER': 'fuk',
-        'PASSWORD': 'fuk',
-        'HOST': 'healthcare-db.lemonmoss-6a32038c.japaneast.azurecontainerapps.io',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'healthcare_db',
+#         'USER': 'fuk',
+#         'PASSWORD': 'fuk',
+#         'HOST': 'db',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
