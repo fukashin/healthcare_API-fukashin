@@ -1,11 +1,11 @@
 services:
   backend:
-    build: ./healthcare_API-fukashin
+    build: ../healthcare_API-fukashin
     container_name: django_backend
     ports:
       - "8000:8000"
     volumes:
-      - ./healthcare_API-fukashin:/app
+      - ../healthcare_API-fukashin:/app
     environment:
       - DEBUG=1
       - POSTGRES_DB=healthcare_db
