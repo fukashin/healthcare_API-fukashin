@@ -21,28 +21,28 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
-    # def wait_for_db():
-    #     retry_count = 0
-    #     max_retries = 5
-    #     while retry_count < max_retries:
-    #         try:
-    #             # データベースに接続を試みる
-    #             conn = psycopg2.connect(
-    #                 dbname="healthcare_db",
-    #                 user="fuk",
-    #                 password="fuk",
-    #                 host="db",
-    #                 port="5432"
-    #             )
-    #             conn.close()
-    #             print("Database connection successful.")
-    #             return
-    #         except OperationalError:
-    #             retry_count += 1
-    #             print(f"Database connection failed. Retrying in 5 seconds... (Attempt {retry_count}/{max_retries})")
-    #             time.sleep(5)
-    #     print("Database connection could not be established. Exiting.")
-    #     exit(1)
+    def wait_for_db():
+        retry_count = 0
+        max_retries = 5
+        while retry_count < max_retries:
+            try:
+                # データベースに接続を試みる
+                conn = psycopg2.connect(
+                    dbname="healthcare_db",
+                    user="fuk",
+                    password="fuk",
+                    host="db",
+                    port="5432"
+                )
+                conn.close()
+                print("Database connection successful.")
+                return
+            except OperationalError:
+                retry_count += 1
+                print(f"Database connection failed. Retrying in 5 seconds... (Attempt {retry_count}/{max_retries})")
+                time.sleep(5)
+        print("Database connection could not be established. Exiting.")
+        exit(1)
 
 
 if __name__ == "__main__":
