@@ -4,7 +4,7 @@ FROM python:3.12-slim
 # 作業ディレクトリを設定
 WORKDIR /app
 
-# 必要なシステムパッケージをインストール
+# 必要なシステムパッケージをインストールあ
 RUN apt-get update && apt-get install -y libpq-dev gcc && rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y dnsutils iputils-ping curl
 RUN apt-get update && apt-get install -y postgresql-client
