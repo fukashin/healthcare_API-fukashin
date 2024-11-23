@@ -18,6 +18,9 @@ RUN pip install -r requirements.txt
 # プロジェクトのソースコードをコピー
 COPY . .
 
+# スーパーユーザー作成を実行
+RUN python create_superuser.py || true
+
 # ポート8000を開放
 EXPOSE 8000
 
