@@ -6,7 +6,7 @@ WORKDIR /app
 
 # 必要なシステムパッケージをインストール
 RUN apt-get update && apt-get install -y libpq-dev gcc && rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt-get install -y iputils-ping
+RUN apt-get update && apt-get install -y dnsutils iputils-ping curl
 
 # 必要なファイルをコピー
 COPY requirements.txt .
