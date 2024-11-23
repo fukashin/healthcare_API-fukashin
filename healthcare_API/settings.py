@@ -9,6 +9,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+
 CSRF_TRUSTED_ORIGINS = [
     'https://healthcareapiappnakami.lemonmoss-6a32038c.japaneast.azurecontainerapps.io',
 ]
