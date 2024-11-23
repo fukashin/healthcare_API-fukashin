@@ -8,7 +8,6 @@ services:
       - ../healthcare_API-fukashin:/app #../healthcare_API-fukashinファイルをコンテナの/appにマウントする
     environment:
       - DEBUG=1
-      -
       - POSTGRES_DB=healthcare_db
       - POSTGRES_USER=fuk
       - POSTGRES_PASSWORD=fuk
