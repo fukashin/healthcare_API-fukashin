@@ -1,13 +1,14 @@
 services:
   backend:
-    build: ../healthcare_API-fukashin
+    build: ../healthcare_API-fukashin #基準の位置を設定今回はhealthcare_API-fukashinフォルダのDockerファイルを実行している
     container_name: django_backend
     ports:
       - "8000:8000"
     volumes:
-      - ../healthcare_API-fukashin:/app
+      - ../healthcare_API-fukashin:/app #../healthcare_API-fukashinファイルをコンテナの/appにマウントする
     environment:
       - DEBUG=1
+      -
       - POSTGRES_DB=healthcare_db
       - POSTGRES_USER=fuk
       - POSTGRES_PASSWORD=fuk
