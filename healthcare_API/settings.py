@@ -73,7 +73,7 @@ DATABASES = {
         'NAME': 'healthcare_db',
         'USER': 'fuk',
         'PASSWORD': 'fuk',
-        'HOST': 'db',
+        'HOST': 'db.internal.lemonmoss-6a32038c.japaneast.azurecontainerapps.io',
         'PORT': '5432',
     }
 }
