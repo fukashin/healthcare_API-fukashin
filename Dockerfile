@@ -23,11 +23,10 @@ COPY . .
 ENV DJANGO_SUPERUSER_USERNAME=admin
 ENV DJANGO_SUPERUSER_EMAIL=admin@example.com
 ENV DJANGO_SUPERUSER_PASSWORD=adminpassword
-# スーパーユーザー作成を実行
-RUN python create_superuser.py || true
 
 # ポート8000を開放
 EXPOSE 8000
 
 # Djangoサーバーを起動
-CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py migrate && python manage.py createsuperuser --no-input && python manage.py runserver 0.0.0.0:8000"]
+
