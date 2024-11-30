@@ -25,6 +25,12 @@ services:
       POSTGRES_DB: healthcare_db
     ports:
       - "5432:5432"
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "admin" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      
     volumes:
       - postgres_data:/var/lib/postgresql/data  # データ永続化用ボリューム
       # node_modules のボリュームが必要であれば以下を使用

@@ -3,7 +3,7 @@ from django.contrib.auth import get_user_model
 from django.db import IntegrityError
 import django
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_project.settings")  # プロジェクト名に置き換え
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "healthcare_API.settings")  # プロジェクト名に置き換え
 django.setup()
 
 User = get_user_model()

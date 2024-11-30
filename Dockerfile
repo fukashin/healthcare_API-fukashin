@@ -19,6 +19,10 @@ RUN pip install -r requirements.txt
 # プロジェクトのソースコードをコピー
 COPY . .
 
+
+ENV DJANGO_SUPERUSER_USERNAME=admin
+ENV DJANGO_SUPERUSER_EMAIL=admin@example.com
+ENV DJANGO_SUPERUSER_PASSWORD=adminpassword
 # スーパーユーザー作成を実行
 RUN python create_superuser.py || true
 
@@ -26,4 +30,4 @@ RUN python create_superuser.py || true
 EXPOSE 8000
 
 # Djangoサーバーを起動
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
