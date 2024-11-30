@@ -5,7 +5,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ../healthcare_API-fukashin:/app #../healthcare_API-fukashinファイルをコンテナの/appにマウントする
+      - ../healthcare_API-fukashin:/app #../healthcare_API-fukashinファイルをコンテナの/appにマウントする　
     environment:
       - DEBUG=1
       - POSTGRES_DB=healthcare_db
