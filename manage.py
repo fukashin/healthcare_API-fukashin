@@ -29,8 +29,8 @@ def main():
                 # データベースに接続を試みる
                 conn = psycopg2.connect(
                     dbname="healthcare_db",
-                    user="fuk",
-                    password="fuk",
+                    user="admin",
+                    password="admin",
                     host="db",
                     port="5432"
                 )
