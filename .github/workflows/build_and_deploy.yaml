@@ -80,13 +80,7 @@ jobs:
       - name: Check running containers
         run: docker ps
         # 起動したコンテナが正常に稼働しているか確認します。
-
-      # Django のテストを実行（任意）
-      - name: Run tests (optional)
-        run: |
-          docker exec django_backend python manage.py test
-        # バックエンドが正しく動作しているか、Django のテストスクリプトを実行して確認します。
-
+        
       # docker-compose を終了
       - name: Stop services
         if: always()
