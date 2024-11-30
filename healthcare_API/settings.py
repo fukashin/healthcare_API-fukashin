@@ -23,11 +23,6 @@ INSTALLED_APPS = [
     'basicapi',
 ]
 
-# いったん無効化
-CSRF_COOKIE_SECURE = False
-CSRF_USE_SESSIONS = False
-CSRF_COOKIE_HTTPONLY = False
-
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
@@ -38,6 +33,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'django.middleware.csrf.CsrfViewMiddleware',
 ]
 
 ROOT_URLCONF = "healthcare_API.urls"
