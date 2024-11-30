@@ -1,4 +1,5 @@
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,9 +11,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://healthcareapiappnakami.lemonmoss-6a32038c.japaneast.azurecontainerapps.io',
-]
 
 
 INSTALLED_APPS = [
@@ -66,14 +64,18 @@ WSGI_APPLICATION = "healthcare_API.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+env = environ.Env()
+env_path = environ.Path(__file__) - 2  # settings.py から2階層上を基準
+environ.Env.read_env(env_path('envs/.env.development'))  # ローカル用の .env を読み込み
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'healthcare_db',
-        'USER': 'fuk',
-        'PASSWORD': 'fuk',
-        'HOST': 'db.k8se-apps.svc.cluster.local',
-        'PORT': '5432',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DATABASE_HOST'),
+        'PORT': env('DATABASE_PORT'),
     }
 }
 
