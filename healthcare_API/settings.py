@@ -71,13 +71,14 @@ environ.Env.read_env(env_path('envs/.env.development'))  # ローカル用の .e
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT'),
+        'NAME': env('DATABASE_NAME', default='healthcare_db'),
+        'USER': env('DATABASE_USER', default='admin'),
+        'PASSWORD': env('DATABASE_PASSWORD', default='admin'),
+        'HOST': env('DATABASE_HOST', default='db'),
+        'PORT': env('DATABASE_PORT', default='5432'),
     }
 }
+
 
 
 # Password validation
